@@ -11,3 +11,6 @@ I update this log daily after each class. Follow along! 🌱
 - 🔸 Created basic `App.js` and structure
 - 🔸 Understood difference between HTML & JSX
 - 🔸 Pushed first commit to GitHub
+<!-- git add README.md
+git commit -m "Added custom README with learning journey details"
+git push -->
