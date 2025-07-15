@@ -1,0 +1,27 @@
+{
+  "name": "my-react-app",
+  "version": "1.0.0",
+  "description": "React learning skill",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theashokx/React.git"
+  },
+  "author": "Ashok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theashokx/React/issues"
+  },
+  "homepage": "https://github.com/theashokx/React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ]
+}
