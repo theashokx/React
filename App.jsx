@@ -1,27 +1,2011 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const jsxheading = <h1 className="head">Namaste Bhai Sabbbb</h1>;
+/*
+Header
+  -Logo
+  -Nav-items
+Body
+  -Search Bar
+  -Restaurant Container
+Footer
+  -Copyright
+  -Links
+*/
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const Title = () => {
-  return <h1>This is Title</h1>;
-};
-
-const head = <h3>Hello React</h3>;
-
-const Heading = () => {
+const Header = () => {
   return (
-    <div>
-      {head}
-      <Title />
-      {Title()}
-      <Title></Title>
-      {}
-      <h2>This is Heading</h2>
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUGz0WshFYnlwlqP_fs3ErIppUvpuaYfTrZQ&s"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-root.render(<Heading />);
+const RestaurantCard = ({ resData }) => {
+  const { name, cuisines, cloudinaryImageId, avgRating, costForTwo, sla } =
+    resData.info;
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
+        alt="Image"
+      />
+      <h3>{name}</h3>
+      <h4>{cuisines.join(",")}</h4>
+      <h4>{avgRating} Stars</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla.slaString} </h4>
+    </div>
+  );
+};
+
+const resList = [
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "934412",
+      name: "Deccan Bawarchi Multicuisine Restaurant",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/30/17a63b2b-fb0a-4bde-8a53-af1272c7206f_934412.jpg",
+      locality: "Adikmet",
+      areaName: "Ragannaguda",
+      costForTwo: "₹500 for two",
+      cuisines: ["Chinese", "Biryani", "Mughlai"],
+      avgRating: 4.1,
+      parentId: "541466",
+      avgRatingString: "4.1",
+      totalRatingsString: "425",
+      sla: {
+        deliveryTime: 28,
+        lastMileTravel: 7.3,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "7.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-19 00:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "30% OFF",
+        subHeader: "UPTO ₹75",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "3.7",
+          ratingCount: "1.6K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/deccan-bawarchi-multicuisine-restaurant-adikmet-ragannaguda-rest934412",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "818748",
+      name: "The Farmers Table",
+      cloudinaryImageId: "85e6e427481332842d4413983ef45bdd",
+      locality: "Vanasthalipuram",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹300 for two",
+      cuisines: ["Snacks"],
+      avgRating: 3.7,
+      parentId: "488104",
+      avgRatingString: "3.7",
+      totalRatingsString: "368",
+      sla: {
+        deliveryTime: 41,
+        lastMileTravel: 8.6,
+        serviceability: "SERVICEABLE",
+        slaString: "40-45 mins",
+        lastMileTravelString: "8.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹99",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.5",
+          ratingCount: "1.5K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/the-farmers-table-vanasthalipuram-rest818748",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "984555",
+      name: "Cafe Korner",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/2/e3854995-64f6-4eea-95a7-fbbba2228128_984555.JPG",
+      locality: "Adibatla & Turkayamjal",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹600 for two",
+      cuisines: ["Desserts", "Beverages", "Fast Food", "Burgers", "Cafe"],
+      avgRating: 4,
+      parentId: "575365",
+      avgRatingString: "4.0",
+      totalRatingsString: "84",
+      sla: {
+        deliveryTime: 52,
+        lastMileTravel: 5.6,
+        serviceability: "SERVICEABLE",
+        slaString: "50-60 mins",
+        lastMileTravelString: "5.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-19 00:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹150 OFF",
+        subHeader: "ABOVE ₹999",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/cafe-korner-adibatla-and-turkayamjal-rest984555",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "702529",
+      name: "Pickles Kitchen Home Made Pickle Rice",
+      cloudinaryImageId: "184c9a497f83e396596dbd91c67e4bf2",
+      locality: "Balaji Nagar",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹200 for two",
+      cuisines: ["Home Food", "South Indian", "Andhra"],
+      avgRating: 4.3,
+      parentId: "419605",
+      avgRatingString: "4.3",
+      totalRatingsString: "483",
+      sla: {
+        deliveryTime: 53,
+        lastMileTravel: 14.3,
+        serviceability: "SERVICEABLE",
+        slaString: "50-60 mins",
+        lastMileTravelString: "14.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "20% OFF",
+        subHeader: "UPTO ₹50",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/pickles-kitchen-home-made-pickle-rice-balaji-nagar-vanasthalipuram-rest702529",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1066067",
+      name: "Guddu's Kitchen",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/19/b2758b21-29eb-4946-bb65-a9f4fa5b02ff_1066067.JPG",
+      locality: "Turkayamjal",
+      areaName: "Hayathnagar",
+      costForTwo: "₹300 for two",
+      cuisines: ["Biryani", "Tibetan"],
+      avgRating: 3.6,
+      parentId: "91174",
+      avgRatingString: "3.6",
+      totalRatingsString: "33",
+      sla: {
+        deliveryTime: 45,
+        lastMileTravel: 8.6,
+        serviceability: "SERVICEABLE",
+        slaString: "45-55 mins",
+        lastMileTravelString: "8.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-19 02:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "15% OFF",
+        subHeader: "UPTO ₹80",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      isNewlyOnboarded: true,
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/guddus-kitchen-turkayamjal-hayathnagar-rest1066067",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "895197",
+      name: "Master Chef Mom's Kitchen",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/5/24/dbe4113e-c669-4f63-ae6b-a463a2369bea_895197.jpg",
+      locality: "Sagar Complex",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹200 for two",
+      cuisines: ["South Indian", "Snacks"],
+      avgRating: 4.4,
+      parentId: "514297",
+      avgRatingString: "4.4",
+      totalRatingsString: "76",
+      sla: {
+        deliveryTime: 52,
+        lastMileTravel: 14.3,
+        serviceability: "SERVICEABLE",
+        slaString: "50-60 mins",
+        lastMileTravelString: "14.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹100 OFF",
+        subHeader: "ABOVE ₹599",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/master-chef-moms-kitchen-sagar-complex-vanasthalipuram-rest895197",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "878506",
+      name: "Noodles Junction",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/30/16b85cc2-038f-4930-a5bc-3da5895cb6bf_878506.jpg",
+      locality: "Hayathnagar_Khalsa",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹400 for two",
+      cuisines: ["Chinese"],
+      avgRating: 4,
+      parentId: "149964",
+      avgRatingString: "4.0",
+      totalRatingsString: "31",
+      sla: {
+        deliveryTime: 63,
+        lastMileTravel: 14.6,
+        serviceability: "SERVICEABLE",
+        slaString: "60-70 mins",
+        lastMileTravelString: "14.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-19 04:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹75 OFF",
+        subHeader: "ABOVE ₹299",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/noodles-junction-hayathnagar-khalsa-vanasthalipuram-rest878506",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1055679",
+      name: "The Dragon'S Kitchen",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/2/28/3874933b-9080-4c67-8a05-ebff5a9a64f1_1055679.JPG",
+      locality: "SAI NAGAR COLONY",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹300 for two",
+      cuisines: ["South Indian"],
+      avgRating: 3.7,
+      parentId: "207836",
+      avgRatingString: "3.7",
+      totalRatingsString: "5",
+      sla: {
+        deliveryTime: 67,
+        lastMileTravel: 14.7,
+        serviceability: "SERVICEABLE",
+        slaString: "65-75 mins",
+        lastMileTravelString: "14.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-19 04:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "20% OFF",
+        subHeader: "UPTO ₹50",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      isNewlyOnboarded: true,
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-8c0d52c4-37a5-41c4-8e93-ad5f75523203",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/the-dragons-kitchen-sai-nagar-colony-vanasthalipuram-rest1055679",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1081065",
+      name: "Sri Raghavendra Hotel",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/17/5f737352-6f8e-4a7f-815c-ee0524d5947a_1081065.jpg",
+      locality: "Hayathnagar",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹400 for two",
+      cuisines: ["South Indian", "Hyderabadi", "Indian", "Healthy Food"],
+      avgRating: 4.4,
+      veg: true,
+      parentId: "194261",
+      avgRatingString: "4.4",
+      totalRatingsString: "40",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 7.3,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "7.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 22:45:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      isNewlyOnboarded: true,
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/sri-raghavendra-hotel-hayathnagar-adibatla-and-turkayamjal-rest1081065",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "623092",
+      name: "Lassi Shop",
+      cloudinaryImageId: "czptk3dfotokgy4gk7nl",
+      locality: "Dawoodkhanguda",
+      areaName: "Vanasthalipuram",
+      costForTwo: "₹300 for two",
+      cuisines: ["Beverages", "Ice Cream", "Desserts"],
+      avgRating: 4.3,
+      parentId: "587",
+      avgRatingString: "4.3",
+      totalRatingsString: "223",
+      sla: {
+        deliveryTime: 52,
+        lastMileTravel: 13,
+        serviceability: "SERVICEABLE",
+        slaString: "50-60 mins",
+        lastMileTravelString: "13.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/lassi-shop-dawoodkhanguda-vanasthalipuram-rest623092",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "970317",
+      name: "Taaza Tiffins",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/10/9/ba2bfe41-38af-4f9a-a416-9afb4ad60434_970317.jpg",
+      locality: "Adibatla & Turkayamjal",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹300 for two",
+      cuisines: ["South Indian", "Beverages"],
+      avgRating: 4.1,
+      veg: true,
+      parentId: "232777",
+      avgRatingString: "4.1",
+      totalRatingsString: "376",
+      sla: {
+        deliveryTime: 42,
+        lastMileTravel: 6.7,
+        serviceability: "SERVICEABLE",
+        slaString: "40-45 mins",
+        lastMileTravelString: "6.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 22:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "40% OFF",
+        subHeader: "UPTO ₹80",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/taaza-tiffins-adibatla-and-turkayamjal-rest970317",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "700128",
+      name: "Hotel Tulips Grand",
+      cloudinaryImageId: "fb3be3440f81b88157f50c9485e8c127",
+      locality: "Vanasthalipuram",
+      areaName: "Turkayamjal",
+      costForTwo: "₹400 for two",
+      cuisines: [
+        "Biryani",
+        "Chinese",
+        "Tandoor",
+        "Seafood",
+        "South Indian",
+        "Desserts",
+        "Beverages",
+      ],
+      avgRating: 4.4,
+      parentId: "457553",
+      avgRatingString: "4.4",
+      totalRatingsString: "9.8K+",
+      sla: {
+        deliveryTime: 45,
+        lastMileTravel: 8.6,
+        serviceability: "SERVICEABLE",
+        slaString: "45-55 mins",
+        lastMileTravelString: "8.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 22:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "10% OFF",
+        subHeader: "UPTO ₹40",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.4",
+          ratingCount: "4.8K+",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/hotel-tulips-grand-vanasthalipuram-turkayamjal-rest700128",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "699529",
+      name: "Red Bucket Biryani",
+      cloudinaryImageId: "f594f4f63d3e00e93203f02d40e38d24",
+      locality: "Mvsr engg college",
+      areaName: "Nadargul",
+      costForTwo: "₹400 for two",
+      cuisines: ["Biryani"],
+      avgRating: 3.4,
+      parentId: "306664",
+      avgRatingString: "3.4",
+      totalRatingsString: "310",
+      sla: {
+        deliveryTime: 43,
+        lastMileTravel: 11.9,
+        serviceability: "SERVICEABLE",
+        slaString: "40-45 mins",
+        lastMileTravelString: "11.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:45:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹40 OFF",
+        subHeader: "ABOVE ₹499",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/red-bucket-biryani-mvsr-engg-college-nadargul-rest699529",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1041412",
+      name: "Hotel Mana Ruchulu",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/2/8/b91b2c34-1d3c-44fd-ba81-9c02f1d526d6_1041412.JPG",
+      locality: "Adibatla & Turkayamjal",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹300 for two",
+      cuisines: ["Biryani"],
+      avgRating: 4.1,
+      parentId: "605955",
+      avgRatingString: "4.1",
+      totalRatingsString: "80",
+      sla: {
+        deliveryTime: 21,
+        lastMileTravel: 3.7,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "3.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "20% OFF",
+        subHeader: "UPTO ₹120",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      isNewlyOnboarded: true,
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/hotel-mana-ruchulu-adibatla-and-turkayamjal-rest1041412",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1027949",
+      name: "CHEFMATES",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/15/e8dd0f9b-2a56-4cf5-bfae-6bab7f27a2ca_1027949.jpg",
+      locality: "Adibatla & Turkayamjal",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹100 for two",
+      cuisines: [
+        "Chaat",
+        "Thalis",
+        "Hyderabadi",
+        "Asian",
+        "Ice Cream",
+        "Juices",
+        "Street Food",
+        "Snacks",
+        "Home Food",
+        "Fast Food",
+      ],
+      avgRating: 4.5,
+      parentId: "598436",
+      avgRatingString: "4.5",
+      totalRatingsString: "184",
+      sla: {
+        deliveryTime: 27,
+        lastMileTravel: 7.3,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "7.3 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹149",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/chefmates-adibatla-and-turkayamjal-rest1027949",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1120250",
+      name: "Zyca Cafe and Kitchen",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/12/1bb3c3ad-fd44-452a-ad1e-ed7e4cf8f396_1120250.jpg",
+      locality: "Adibatla & Turkayamjal",
+      areaName: "Adibatla & Turkayamjal",
+      costForTwo: "₹800 for two",
+      cuisines: [
+        "Chinese",
+        "Biryani",
+        "Desserts",
+        "Continental",
+        "Italian",
+        "South Indian",
+        "Bakery",
+        "Beverages",
+        "Kebabs",
+        "North Indian",
+      ],
+      avgRating: 4.2,
+      parentId: "645897",
+      avgRatingString: "4.2",
+      totalRatingsString: "19",
+      sla: {
+        deliveryTime: 25,
+        lastMileTravel: 6.8,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "6.8 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-07-18 23:30:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/zyca-cafe-and-kitchen-adibatla-and-turkayamjal-rest1120250",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+];
+
+// const resList = [
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "1081065",
+//       name: "Sri Raghavendra Hotel",
+//       cloudinaryImageId:
+//         "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/17/5f737352-6f8e-4a7f-815c-ee0524d5947a_1081065.jpg",
+//       locality: "Hayathnagar",
+//       areaName: "Adibatla & Turkayamjal",
+//       costForTwo: "₹400 for two",
+//       cuisines: ["South Indian", "Hyderabadi", "Indian", "Healthy Food"],
+//       avgRating: 4.4,
+//       veg: true,
+//       parentId: "194261",
+//       avgRatingString: "4.4",
+//       totalRatingsString: "40",
+//       sla: {
+//         deliveryTime: 26,
+//         lastMileTravel: 7.3,
+//         serviceability: "SERVICEABLE",
+//         slaString: "25-30 mins",
+//         lastMileTravelString: "7.3 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 22:45:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       aggregatedDiscountInfoV2: {},
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       isNewlyOnboarded: true,
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/sri-raghavendra-hotel-hayathnagar-adibatla-and-turkayamjal-rest1081065",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "623092",
+//       name: "Lassi Shop",
+//       cloudinaryImageId: "czptk3dfotokgy4gk7nl",
+//       locality: "Dawoodkhanguda",
+//       areaName: "Vanasthalipuram",
+//       costForTwo: "₹300 for two",
+//       cuisines: ["Beverages", "Ice Cream", "Desserts"],
+//       avgRating: 4.3,
+//       parentId: "587",
+//       avgRatingString: "4.3",
+//       totalRatingsString: "223",
+//       sla: {
+//         deliveryTime: 52,
+//         lastMileTravel: 13,
+//         serviceability: "SERVICEABLE",
+//         slaString: "50-60 mins",
+//         lastMileTravelString: "13.0 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 23:00:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       aggregatedDiscountInfoV2: {},
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/lassi-shop-dawoodkhanguda-vanasthalipuram-rest623092",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "970317",
+//       name: "Taaza Tiffins",
+//       cloudinaryImageId:
+//         "RX_THUMBNAIL/IMAGES/VENDOR/2024/10/9/ba2bfe41-38af-4f9a-a416-9afb4ad60434_970317.jpg",
+//       locality: "Adibatla & Turkayamjal",
+//       areaName: "Adibatla & Turkayamjal",
+//       costForTwo: "₹300 for two",
+//       cuisines: ["South Indian", "Beverages"],
+//       avgRating: 4.1,
+//       veg: true,
+//       parentId: "232777",
+//       avgRatingString: "4.1",
+//       totalRatingsString: "376",
+//       sla: {
+//         deliveryTime: 42,
+//         lastMileTravel: 6.7,
+//         serviceability: "SERVICEABLE",
+//         slaString: "40-45 mins",
+//         lastMileTravelString: "6.7 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 22:30:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       aggregatedDiscountInfoV3: {
+//         header: "40% OFF",
+//         subHeader: "UPTO ₹80",
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/taaza-tiffins-adibatla-and-turkayamjal-rest970317",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "700128",
+//       name: "Hotel Tulips Grand",
+//       cloudinaryImageId: "fb3be3440f81b88157f50c9485e8c127",
+//       locality: "Vanasthalipuram",
+//       areaName: "Turkayamjal",
+//       costForTwo: "₹400 for two",
+//       cuisines: [
+//         "Biryani",
+//         "Chinese",
+//         "Tandoor",
+//         "Seafood",
+//         "South Indian",
+//         "Desserts",
+//         "Beverages",
+//       ],
+//       avgRating: 4.4,
+//       parentId: "457553",
+//       avgRatingString: "4.4",
+//       totalRatingsString: "9.8K+",
+//       sla: {
+//         deliveryTime: 45,
+//         lastMileTravel: 8.6,
+//         serviceability: "SERVICEABLE",
+//         slaString: "45-55 mins",
+//         lastMileTravelString: "8.6 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 22:30:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       aggregatedDiscountInfoV3: {
+//         header: "10% OFF",
+//         subHeader: "UPTO ₹40",
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "4.4",
+//           ratingCount: "4.8K+",
+//         },
+//         source: "GOOGLE",
+//         sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/hotel-tulips-grand-vanasthalipuram-turkayamjal-rest700128",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "699529",
+//       name: "Red Bucket Biryani",
+//       cloudinaryImageId: "f594f4f63d3e00e93203f02d40e38d24",
+//       locality: "Mvsr engg college",
+//       areaName: "Nadargul",
+//       costForTwo: "₹400 for two",
+//       cuisines: ["Biryani"],
+//       avgRating: 3.4,
+//       parentId: "306664",
+//       avgRatingString: "3.4",
+//       totalRatingsString: "310",
+//       sla: {
+//         deliveryTime: 43,
+//         lastMileTravel: 11.9,
+//         serviceability: "SERVICEABLE",
+//         slaString: "40-45 mins",
+//         lastMileTravelString: "11.9 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 23:45:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       aggregatedDiscountInfoV3: {
+//         header: "₹40 OFF",
+//         subHeader: "ABOVE ₹499",
+//         discountTag: "FLAT DEAL",
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/red-bucket-biryani-mvsr-engg-college-nadargul-rest699529",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "1041412",
+//       name: "Hotel Mana Ruchulu",
+//       cloudinaryImageId:
+//         "RX_THUMBNAIL/IMAGES/VENDOR/2025/2/8/b91b2c34-1d3c-44fd-ba81-9c02f1d526d6_1041412.JPG",
+//       locality: "Adibatla & Turkayamjal",
+//       areaName: "Adibatla & Turkayamjal",
+//       costForTwo: "₹300 for two",
+//       cuisines: ["Biryani"],
+//       avgRating: 4.1,
+//       parentId: "605955",
+//       avgRatingString: "4.1",
+//       totalRatingsString: "80",
+//       sla: {
+//         deliveryTime: 21,
+//         lastMileTravel: 3.7,
+//         serviceability: "SERVICEABLE",
+//         slaString: "20-25 mins",
+//         lastMileTravelString: "3.7 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 23:30:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       aggregatedDiscountInfoV3: {
+//         header: "20% OFF",
+//         subHeader: "UPTO ₹120",
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       isNewlyOnboarded: true,
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/hotel-mana-ruchulu-adibatla-and-turkayamjal-rest1041412",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "1027949",
+//       name: "CHEFMATES",
+//       cloudinaryImageId:
+//         "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/15/e8dd0f9b-2a56-4cf5-bfae-6bab7f27a2ca_1027949.jpg",
+//       locality: "Adibatla & Turkayamjal",
+//       areaName: "Adibatla & Turkayamjal",
+//       costForTwo: "₹100 for two",
+//       cuisines: [
+//         "Chaat",
+//         "Thalis",
+//         "Hyderabadi",
+//         "Asian",
+//         "Ice Cream",
+//         "Juices",
+//         "Street Food",
+//         "Snacks",
+//         "Home Food",
+//         "Fast Food",
+//       ],
+//       avgRating: 4.5,
+//       parentId: "598436",
+//       avgRatingString: "4.5",
+//       totalRatingsString: "184",
+//       sla: {
+//         deliveryTime: 27,
+//         lastMileTravel: 7.3,
+//         serviceability: "SERVICEABLE",
+//         slaString: "25-30 mins",
+//         lastMileTravelString: "7.3 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 23:30:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       aggregatedDiscountInfoV3: {
+//         header: "ITEMS",
+//         subHeader: "AT ₹149",
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/chefmates-adibatla-and-turkayamjal-rest1027949",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+//   {
+//     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+//     info: {
+//       id: "1120250",
+//       name: "Zyca Cafe and Kitchen",
+//       cloudinaryImageId:
+//         "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/12/1bb3c3ad-fd44-452a-ad1e-ed7e4cf8f396_1120250.jpg",
+//       locality: "Adibatla & Turkayamjal",
+//       areaName: "Adibatla & Turkayamjal",
+//       costForTwo: "₹800 for two",
+//       cuisines: [
+//         "Chinese",
+//         "Biryani",
+//         "Desserts",
+//         "Continental",
+//         "Italian",
+//         "South Indian",
+//         "Bakery",
+//         "Beverages",
+//         "Kebabs",
+//         "North Indian",
+//       ],
+//       avgRating: 4.2,
+//       parentId: "645897",
+//       avgRatingString: "4.2",
+//       totalRatingsString: "19",
+//       sla: {
+//         deliveryTime: 25,
+//         lastMileTravel: 6.8,
+//         serviceability: "SERVICEABLE",
+//         slaString: "20-25 mins",
+//         lastMileTravelString: "6.8 km",
+//         iconType: "ICON_TYPE_EMPTY",
+//       },
+//       availability: {
+//         nextCloseTime: "2025-07-18 23:30:00",
+//         opened: true,
+//       },
+//       badges: {},
+//       isOpen: true,
+//       aggregatedDiscountInfoV2: {},
+//       type: "F",
+//       badgesV2: {
+//         entityBadges: {
+//           imageBased: {},
+//           textBased: {},
+//           textExtendedBadges: {},
+//         },
+//       },
+//       orderabilityCommunication: {
+//         title: {},
+//         subTitle: {},
+//         message: {},
+//         customIcon: {},
+//       },
+//       differentiatedUi: {
+//         displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+//         differentiatedUiMediaDetails: {
+//           mediaType: "ADS_MEDIA_ENUM_IMAGE",
+//           lottie: {},
+//           video: {},
+//         },
+//       },
+//       reviewsSummary: {},
+//       displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+//       restaurantOfferPresentationInfo: {},
+//       externalRatings: {
+//         aggregatedRating: {
+//           rating: "--",
+//         },
+//       },
+//       ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+//     },
+//     analytics: {
+//       context: "seo-data-6cc20820-4cb6-450d-95a9-6e6d38db329f",
+//     },
+//     cta: {
+//       link: "https://www.swiggy.com/city/hyderabad/zyca-cafe-and-kitchen-adibatla-and-turkayamjal-rest1120250",
+//       text: "RESTAURANT_MENU",
+//       type: "WEBLINK",
+//     },
+//     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+//   },
+// ];
+
+const resobj = {
+  id: "1081065",
+  name: "Sri Raghavendra Hotel",
+  cloudinaryImageId:
+    "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/17/5f737352-6f8e-4a7f-815c-ee0524d5947a_1081065.jpg",
+  locality: "Hayathnagar",
+  areaName: "Adibatla & Turkayamjal",
+  costForTwo: "₹400 for two",
+  cuisines: ["South Indian", "Hyderabadi", "Indian", "Healthy Food"],
+  avgRating: 4.4,
+  veg: true,
+  parentId: "194261",
+  avgRatingString: "4.4",
+  totalRatingsString: "40",
+  sla: {
+    deliveryTime: 26,
+    lastMileTravel: 7.3,
+    serviceability: "SERVICEABLE",
+    slaString: "25-30 mins",
+    lastMileTravelString: "7.3 km",
+    iconType: "ICON_TYPE_EMPTY",
+  },
+  availability: {
+    nextCloseTime: "2025-07-18 22:45:00",
+    opened: true,
+  },
+  badges: {},
+  isOpen: true,
+  aggregatedDiscountInfoV2: {},
+  type: "F",
+  badgesV2: {
+    entityBadges: {
+      imageBased: {},
+      textBased: {},
+      textExtendedBadges: {},
+    },
+  },
+  orderabilityCommunication: {
+    title: {},
+    subTitle: {},
+    message: {},
+    customIcon: {},
+  },
+  differentiatedUi: {
+    displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    differentiatedUiMediaDetails: {
+      mediaType: "ADS_MEDIA_ENUM_IMAGE",
+      lottie: {},
+      video: {},
+    },
+  },
+  reviewsSummary: {},
+  displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  isNewlyOnboarded: true,
+  restaurantOfferPresentationInfo: {},
+  externalRatings: {
+    aggregatedRating: {
+      rating: "--",
+    },
+  },
+  ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+};
+
+const Body = () => {
+  return (
+    <div className="Body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        {resList.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<AppLayout />);
