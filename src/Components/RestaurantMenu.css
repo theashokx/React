@@ -1,0 +1,208 @@
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ---------- Page Wrapper ---------- */
+.res-body {
+  max-width: 1100px; /* make it wide; change to 1200px if you want even longer */
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* ---------- Title ---------- */
+.res-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ff5722;
+  margin: 0 0 28px;
+}
+
+/* ---------- Restaurant Info Card (you used `resmenu-card`) ---------- */
+/* ---------- Vars (tweak freely) ---------- */
+:root {
+  --brand: #ff4d2d; /* primary accent */
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --surface: #ffffff;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  --radius: 18px;
+}
+
+/* ---------- Card ---------- */
+
+/* ---------- Menu ---------- */
+.menu-wrapper {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px 32px;
+  margin-bottom: 20px;
+}
+
+.menu-heading {
+  text-align: center;
+  font-size: 24px;
+  color: #ff5722;
+  margin: 0 0 18px;
+  border-bottom: 2px solid #ff5722;
+}
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-row span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+}
+
+.menu-price {
+  font-weight: 700;
+  color: #ff5722;
+  white-space: nowrap;
+}
+
+.resmenu-card {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 28px;
+  padding: 20px 30px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+/* Top accent bar */
+.resmenu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff4d2d, #ff8a65);
+}
+
+/* Left section */
+.res-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.res-rating {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.res-line {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Right section */
+.res-right {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cuisines {
+  font-weight: 600;
+}
+
+/* Hover effect */
+.resmenu-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+  transition: 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .resmenu-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .res-right {
+    text-align: center;
+  }
+}
+
+.menu-item-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #424242 !important;
+}
+
+.add-button {
+  background-color: #28a745; /* green button */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
+}
+
+.add-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-item-name {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.menu-price {
+  margin-right: 16px;
+  font-size: 15px;
+  color: #555;
+}
